@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Test\Test0.xml-->
+<behavior name="Test/Test0" agenttype="RobotAgent" version="5">
+  <pars>
+    <par name="t1" type="int" value="0" />
+  </pars>
+  <node class="DecoratorLoop" id="0">
+    <property Count="const int 9" />
+    <property DecorateWhenChildEnds="true" />
+    <property DoneWithinFrame="false" />
+    <node class="Parallel" id="2">
+      <property ChildFinishPolicy="CHILDFINISH_LOOP" />
+      <property ExitPolicy="EXIT_ABORT_RUNNINGSIBLINGS" />
+      <property FailurePolicy="FAIL_ON_ONE" />
+      <property SuccessPolicy="SUCCEED_ON_ALL" />
+      <node class="Compute" id="12">
+        <property Operator="Add" />
+        <property Opl="int Self.RobotAgent::t1" />
+        <property Opr1="const int 1" />
+        <property Opr2="int Self.RobotAgent::t1" />
+      </node>
+      <node class="DecoratorCountLimit" id="6">
+        <property Count="const int 5" />
+        <property DecorateWhenChildEnds="true" />
+        <node class="Action" id="1">
+          <property Method="Self.behaviac::Agent::LogMessage(&quot;count&quot;)" />
+          <property ResultOption="BT_SUCCESS" />
+        </node>
+      </node>
+      <node class="Condition" id="5">
+        <property Operator="Equal" />
+        <property Opl="int Self.RobotAgent::t1" />
+        <property Opr="const int 5" />
+      </node>
+    </node>
+  </node>
+</behavior>

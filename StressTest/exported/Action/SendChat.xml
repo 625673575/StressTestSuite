@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Action\SendChat.xml-->
+<behavior name="Action/SendChat" agenttype="RobotAgent" version="5">
+  <node class="Sequence" id="1">
+    <node class="Action" id="0">
+      <property Method="Self.RobotAgent::ChatTo(&quot;&quot;,&quot;&quot;)" />
+      <property ResultOption="BT_SUCCESS" />
+    </node>
+  </node>
+</behavior>

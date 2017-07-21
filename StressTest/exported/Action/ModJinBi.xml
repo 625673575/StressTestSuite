@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Action\ModJinBi.xml-->
+<behavior name="Action/ModJinBi" agenttype="RobotAgent" version="5">
+  <pars>
+    <par name="beforeBuy" type="long" value="0" />
+    <par name="beforeBuy" type="long" value="0" />
+    <par name="afterBuy" type="long" value="0" />
+    <par name="_$local_task_param_$_0" type="int" value="0" />
+  </pars>
+  <node class="Task" id="1">
+    <property Prototype="Self.RobotAgent::Task_ModJinBi(0)" />
+    <property IsHTN="false" />
+    <node class="Sequence" id="10">
+      <node class="Assignment" id="5">
+        <property CastRight="false" />
+        <property Opl="long Self.RobotAgent::beforeBuy" />
+        <property Opr="Self.RobotAgent::GetJinBi()" />
+      </node>
+      <node class="Assignment" id="4">
+        <property CastRight="false" />
+        <property Opl="string Self.RobotAgent::TempString1" />
+        <property Opr="Self.RobotAgent::Format1(&quot;购买前金币:{0}&quot;,long Self.RobotAgent::beforeBuy)" />
+      </node>
+      <node class="Action" id="11">
+        <property Method="Self.RobotAgent::AgentLog(string Self.RobotAgent::TempString1)" />
+        <property ResultOption="BT_SUCCESS" />
+      </node>
+      <node class="Action" id="13">
+        <property Method="Self.RobotAgent::ModJinBi(int Self.RobotAgent::_$local_task_param_$_0)" />
+        <property ResultOption="BT_SUCCESS" />
+      </node>
+      <node class="WaitforSignal" id="6">
+        <custom>
+          <node class="Condition" id="7">
+            <property Operator="Greater" />
+            <property Opl="Self.RobotAgent::GetJinBi()" />
+            <property Opr="long Self.RobotAgent::beforeBuy" />
+          </node>
+        </custom>
+      </node>
+      <node class="Assignment" id="0">
+        <property CastRight="false" />
+        <property Opl="long Self.RobotAgent::afterBuy" />
+        <property Opr="Self.RobotAgent::GetJinBi()" />
+      </node>
+      <node class="Assignment" id="8">
+        <property CastRight="false" />
+        <property Opl="string Self.RobotAgent::TempString2" />
+        <property Opr="Self.RobotAgent::Format2(&quot;购买前金币{0} 购买后{1}&quot;,long Self.RobotAgent::beforeBuy,long Self.RobotAgent::afterBuy)" />
+      </node>
+      <node class="Action" id="9">
+        <property Method="Self.RobotAgent::AgentLog(string Self.RobotAgent::TempString2)" />
+        <property ResultOption="BT_SUCCESS" />
+      </node>
+    </node>
+  </node>
+</behavior>

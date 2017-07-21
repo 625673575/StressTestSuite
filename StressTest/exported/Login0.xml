@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Login0.xml-->
+<behavior name="Login0" agenttype="RobotAgent" version="5">
+  <node class="DecoratorLoop" id="8">
+    <property Count="const int -1" />
+    <property DecorateWhenChildEnds="true" />
+    <property DoneWithinFrame="false" />
+    <node class="ReferencedBehavior" id="0">
+      <property ReferenceBehavior="const string &quot;Action/Loginout&quot;" />
+    </node>
+  </node>
+</behavior>

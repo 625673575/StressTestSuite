@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Action\Loginout.xml-->
+<behavior name="Action/Loginout" agenttype="RobotAgent" version="5">
+  <node class="Sequence" id="0">
+    <node class="Condition" id="1">
+      <property Operator="Equal" />
+      <property Opl="bool Self.RobotAgent::IsLogin" />
+      <property Opr="const bool false" />
+    </node>
+    <node class="Action" id="2">
+      <property Method="Self.RobotAgent::AgentLog(&quot;开始登入&quot;)" />
+      <property ResultOption="BT_SUCCESS" />
+    </node>
+    <node class="WaitFrames" id="9">
+      <property Frames="Self.RobotAgent::GetRandomInt(0,0)" />
+    </node>
+    <node class="Action" id="3">
+      <property Method="Self.RobotAgent::Login()" />
+      <property ResultOption="BT_SUCCESS" />
+    </node>
+    <node class="WaitforSignal" id="5">
+      <custom>
+        <node class="Condition" id="6">
+          <property Operator="Equal" />
+          <property Opl="bool Self.RobotAgent::IsLogin" />
+          <property Opr="const bool true" />
+        </node>
+      </custom>
+    </node>
+    <node class="WaitFrames" id="4">
+      <property Frames="Self.RobotAgent::GetRandomInt(1,10)" />
+    </node>
+    <node class="Action" id="7">
+      <property Method="Self.RobotAgent::Logout()" />
+      <property ResultOption="BT_SUCCESS" />
+    </node>
+    <node class="Action" id="16">
+      <property Method="Self.RobotAgent::AgentLog(string Self.RobotAgent::Username)" />
+      <property ResultOption="BT_SUCCESS" />
+    </node>
+    <node class="Assignment" id="8">
+      <property CastRight="true" />
+      <property Opl="bool Self.RobotAgent::IsLogin" />
+      <property Opr="const bool false" />
+    </node>
+  </node>
+</behavior>

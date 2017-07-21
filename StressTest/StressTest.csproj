@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{580C524D-208B-477C-97CB-2008C036227C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StressTest</RootNamespace>
+    <AssemblyName>StressTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;BEHAVIAC_NOT_USE_UNITY;BEHAVIAC_RELEASE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;BEHAVIAC_NOT_USE_UNITY;BEHAVIAC_RELEASE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>StressTest.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgentViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgentViewer.Designer.cs">
+      <DependentUpon>AgentViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attributes.cs" />
+    <Compile Include="behaviac_generated\types\AgentProperties.cs" />
+    <Compile Include="behaviac_generated\types\RobotAgent.cs" />
+    <Compile Include="BehaviorThread.cs" />
+    <Compile Include="BehaviorTreeViewDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BehaviorTreeViewDock.Designer.cs">
+      <DependentUpon>BehaviorTreeViewDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Debug.cs" />
+    <Compile Include="ErrorInfoDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorInfoDock.Designer.cs">
+      <DependentUpon>ErrorInfoDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Text.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Text.Designer.cs">
+      <DependentUpon>Form_Text.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LabelInput.Designer.cs">
+      <DependentUpon>LabelInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NodeTreeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NodeTreeList.Designer.cs">
+      <DependentUpon>NodeTreeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="runtime\Agent\Agent.cs" />
+    <Compile Include="runtime\Agent\Context.cs" />
+    <Compile Include="runtime\Base\Attributs.cs" />
+    <Compile Include="runtime\Base\CRC32.cs" />
+    <Compile Include="runtime\Base\FileManager.cs" />
+    <Compile Include="runtime\Base\LogManager.cs" />
+    <Compile Include="runtime\Base\Member.cs" />
+    <Compile Include="runtime\Base\Meta.cs" />
+    <Compile Include="runtime\Base\MiniXml.cs" />
+    <Compile Include="runtime\Base\Operation.cs" />
+    <Compile Include="runtime\Base\Properties.cs" />
+    <Compile Include="runtime\Base\RandomGenerator.cs" />
+    <Compile Include="runtime\Base\socketconnect.cs" />
+    <Compile Include="runtime\Base\socketconnect_base.cs" />
+    <Compile Include="runtime\Base\Utils.cs" />
+    <Compile Include="runtime\BehaviorTree\Attachments\AttachAction.cs" />
+    <Compile Include="runtime\BehaviorTree\Attachments\Effector.cs" />
+    <Compile Include="runtime\BehaviorTree\Attachments\Event.cs" />
+    <Compile Include="runtime\BehaviorTree\Attachments\Precondition.cs" />
+    <Compile Include="runtime\BehaviorTree\BehaviorTree.cs" />
+    <Compile Include="runtime\BehaviorTree\BehaviorTree_task.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Actions\Action.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Actions\Assignment.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Actions\Compute.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Actions\Noop.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Actions\Wait.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Actions\Waitforsignal.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Actions\Waitframes.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Compositestochastic.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Ifelse.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Parallel.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Referencebehavior.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Selector.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Selectorloop.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Selectorprobability.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Selectorstochastic.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Sequence.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Sequencestochastic.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Composites\Withprecondition.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Conditions\And.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Conditions\Condition.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Conditions\Conditionbase.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Conditions\False.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Conditions\Or.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Conditions\True.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratoralwaysfailure.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratoralwaysrunning.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratoralwayssuccess.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorcount.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorcountlimit.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorfailureuntil.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorframes.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\DecoratorIterator.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorlog.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorloop.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorloopuntil.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratornot.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorrepeat.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorsuccessuntil.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratortime.cs" />
+    <Compile Include="runtime\BehaviorTree\Nodes\Decorators\Decoratorweight.cs" />
+    <Compile Include="runtime\FSM\AlwaysTransition.cs" />
+    <Compile Include="runtime\FSM\FSM.cs" />
+    <Compile Include="runtime\FSM\StartCondition.cs" />
+    <Compile Include="runtime\FSM\State.cs" />
+    <Compile Include="runtime\FSM\TransitionCondition.cs" />
+    <Compile Include="runtime\FSM\WaitframesState.cs" />
+    <Compile Include="runtime\FSM\WaitState.cs" />
+    <Compile Include="runtime\FSM\WaitTransition.cs" />
+    <Compile Include="runtime\HTN\AgentState.cs" />
+    <Compile Include="runtime\HTN\Method.cs" />
+    <Compile Include="runtime\HTN\Planner.cs" />
+    <Compile Include="runtime\HTN\PlannerTask.cs" />
+    <Compile Include="runtime\HTN\Task.cs" />
+    <Compile Include="runtime\Workspace.cs" />
+    <Compile Include="TaskSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskSetting.Designer.cs">
+      <DependentUpon>TaskSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeListDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreeListDock.Designer.cs">
+      <DependentUpon>TreeListDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkspaceTreeList.cs">
+      <SubType>UserControl</SubType>
+      <CustomToolNamespace>Custom</CustomToolNamespace>
+      <Generator>Custom</Generator>
+    </Compile>
+    <Compile Include="WorkspaceTreeList.Designer.cs">
+      <DependentUpon>WorkspaceTreeList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AgentViewer.resx">
+      <DependentUpon>AgentViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BehaviorTreeViewDock.resx">
+      <DependentUpon>BehaviorTreeViewDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorInfoDock.resx">
+      <DependentUpon>ErrorInfoDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Text.resx">
+      <DependentUpon>Form_Text.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelInput.resx">
+      <DependentUpon>LabelInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NodeTreeList.resx">
+      <DependentUpon>NodeTreeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TaskSetting.resx">
+      <DependentUpon>TaskSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeListDock.resx">
+      <DependentUpon>TreeListDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkspaceTreeList.resx">
+      <DependentUpon>WorkspaceTreeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DisableAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnableAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File-Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File-Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\findfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder-Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0000_46.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0001_45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0002_44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0003_43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0004_42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0005_41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0006_40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0007_39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0008_38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0009_37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0010_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0011_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0012_34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0013_33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0014_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0015_31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0016_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0017_29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0018_28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0019_27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0020_26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0021_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0021_25b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0022_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0023_23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0024_22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0025_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0026_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0027_19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0028_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0029_17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0030_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0031_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0032_14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0033_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0034_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0035_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0036_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0037_09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0038_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0039_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0040_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0041_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0042_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0043_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0044_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON__0045_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\method.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\postaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Skip-backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Skip-forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\state.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\task.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transform-move1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transform-move2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transition.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\try.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="behaviac_generated\behaviors\" />
+    <Folder Include="Nodes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dockpanelsuite\WinFormsUI\WinFormsUI.csproj">
+      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

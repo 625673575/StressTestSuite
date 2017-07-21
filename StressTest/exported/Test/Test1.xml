@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Test\Test1.xml-->
+<behavior name="Test/Test1" agenttype="RobotAgent" version="5">
+  <node class="DecoratorLoop" id="0">
+    <property Count="const int -1" />
+    <property DecorateWhenChildEnds="true" />
+    <property DoneWithinFrame="false" />
+    <node class="Sequence" id="2">
+      <node class="Action" id="1">
+        <property Method="Self.behaviac::Agent::LogMessage(string Self.RobotAgent::Username)" />
+        <property ResultOption="BT_SUCCESS" />
+      </node>
+      <node class="WaitFrames" id="3">
+        <property Frames="const int 10" />
+      </node>
+    </node>
+  </node>
+</behavior>

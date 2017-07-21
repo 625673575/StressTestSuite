@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: GetGold.xml-->
+<behavior name="GetGold" agenttype="RobotAgent" version="5">
+  <node class="Sequence" id="1">
+    <node class="ReferencedBehavior" id="2">
+      <property ReferenceBehavior="const string &quot;Action/LoginOnce&quot;" />
+    </node>
+    <node class="WaitforSignal" id="3">
+      <custom>
+        <node class="Condition" id="4">
+          <property Operator="Equal" />
+          <property Opl="bool Self.RobotAgent::IsLogin" />
+          <property Opr="const bool true" />
+        </node>
+      </custom>
+    </node>
+    <node class="ReferencedBehavior" id="0">
+      <property ReferenceBehavior="const string &quot;Action/ModGoldRandom&quot;" />
+    </node>
+  </node>
+</behavior>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Action\ModGoldRandom.xml-->
+<behavior name="Action/ModGoldRandom" agenttype="RobotAgent" version="5">
+  <pars>
+    <par name="_$local_task_param_$_0" type="int" value="0" />
+    <par name="_$local_task_param_$_1" type="int" value="0" />
+    <par name="randomCount" type="int" value="0" />
+  </pars>
+  <node class="Sequence" id="0">
+    <node class="Assignment" id="5">
+      <property CastRight="false" />
+      <property Opl="int Self.RobotAgent::randomCount" />
+      <property Opr="Self.RobotAgent::GetRandomInt(200,2000)" />
+    </node>
+    <node class="SelectorStochastic" id="1">
+      <node class="ReferencedBehavior" id="2">
+        <property ReferenceBehavior="const string &quot;Action/ModJinBi&quot;" />
+        <property Task="Self.RobotAgent::Task_ModJinBi(int Self.RobotAgent::randomCount)" />
+      </node>
+      <node class="ReferencedBehavior" id="3">
+        <property ReferenceBehavior="const string &quot;Action/ModZuanShi&quot;" />
+        <property Task="Self.RobotAgent::Task_ModZuanShi(int Self.RobotAgent::randomCount)" />
+      </node>
+      <node class="ReferencedBehavior" id="4">
+        <property ReferenceBehavior="const string &quot;Action/ModDianQuan&quot;" />
+        <property Task="Self.RobotAgent::Task_ModDianQuan(int Self.RobotAgent::randomCount)" />
+      </node>
+    </node>
+  </node>
+</behavior>

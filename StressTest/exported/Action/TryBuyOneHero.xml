@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: Action\TryBuyOneHero.xml-->
+<behavior name="Action/TryBuyOneHero" agenttype="RobotAgent" version="5">
+  <node class="Sequence" id="1">
+    <node class="SelectorLoop" id="4">
+      <node class="WithPrecondition" id="5">
+        <node class="Condition" id="2">
+          <property Operator="Less" />
+          <property Opl="Self.RobotAgent::GetJinBi()" />
+          <property Opr="const long 1000" />
+        </node>
+        <node class="Action" id="3">
+          <property Method="Self.RobotAgent::ModJinBi(1000)" />
+          <property ResultOption="BT_SUCCESS" />
+        </node>
+      </node>
+    </node>
+    <node class="Action" id="0">
+      <property Method="Self.RobotAgent::TryBuyAHero(1)" />
+      <property ResultOption="BT_SUCCESS" />
+    </node>
+  </node>
+</behavior>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<agents version="1" signature="124579492">
+  <agent type="RobotAgent" base="behaviac::Agent" signature="1023031094">
+    <properties>
+      <property name="AgentCount" type="uint" member="false" static="true" defaultvalue="0" />
+      <property name="ForceLogout" type="bool" member="false" static="true" defaultvalue="false" />
+      <property name="IsLogin" type="bool" member="false" static="false" defaultvalue="false" />
+      <property name="IsShowLogMessage" type="bool" member="false" static="true" defaultvalue="true" />
+      <property name="IsTryLogin" type="bool" member="false" static="false" defaultvalue="false" />
+      <property name="LoginTimes" type="uint" member="false" static="false" defaultvalue="0" />
+      <property name="PassTestCount" type="uint" member="false" static="true" defaultvalue="0" />
+      <property name="Password" type="string" member="false" static="false" defaultvalue="123456" />
+      <property name="TempLong1" type="long" member="false" static="false" defaultvalue="0" />
+      <property name="TempLong2" type="long" member="false" static="false" defaultvalue="0" />
+      <property name="TempString1" type="string" member="false" static="false" defaultvalue="" />
+      <property name="TempString2" type="string" member="false" static="false" defaultvalue="" />
+      <property name="Username" type="string" member="false" static="false" defaultvalue="liu" />
+    </properties>
+  </agent>
+</agents>
