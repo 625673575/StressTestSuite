@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StressTest.Client
+public class PlayerInterface
 {
-    class Player
-    {
-    }
+    public int ID;
 }

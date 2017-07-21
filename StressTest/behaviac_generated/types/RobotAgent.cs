@@ -79,7 +79,7 @@ public class RobotAgent : behaviac.Agent
         uint count = 0;
         foreach (RobotAgent age in AgentInstances.Values)
         {
-            if (age._net != null && age.IsLogin)
+            //if (age._net != null && age.IsLogin)
             {
                 ++count;
             }
@@ -99,7 +99,7 @@ public class RobotAgent : behaviac.Agent
     {
         RobotAgent agent;
         if (AgentInstances.TryGetValue(task, out agent))
-            return agent.Player.ID;
+            return 0;
         return 0;
     }
 
@@ -117,7 +117,7 @@ public class RobotAgent : behaviac.Agent
         uint count = 0;
         foreach (RobotAgent age in AgentInstances.Values)
         {
-            if (age._net != null && age.IsTryLogin)
+            //if (age._net != null && age.IsTryLogin)
             {
                 ++count;
             }
@@ -136,12 +136,9 @@ public class RobotAgent : behaviac.Agent
 
 
     public uint Frame;
-    //Player _player;
+    PlayerInterface _player;
     public EBTStatus _status = behaviac.EBTStatus.BT_RUNNING;
-    //public Player Player { get { return _player; } }
-
-    ////Account _account;
-    public Account Account { get { return _account; } }
+    public PlayerInterface Player { get { return _player; } }
 
     //NetManager _net;
     //public NetManager Net { get { return _net; } }
@@ -160,21 +157,14 @@ public class RobotAgent : behaviac.Agent
     public string Username { get { return GetName(); } set { SetName(value); } }
 
     [ShowValue("用户ID:{0}")]
-    public ulong UserID { get { return Player.ID; } }
+    public ulong UserID { get { return 7563425; } }
     #endregion
     #region instance method
-    public void Register(Player player)
+    public void Register(PlayerInterface player)
     {
         _player = player;
     }
-    public void Register(Account account)
-    {
-        _account = account;
-    }
-    public void Register(NetManager net)
-    {
-        _net = net;
-    }
+
     public int GetIndex()
     {
         int la = Username.LastIndexOf('_') + 1;
@@ -195,17 +185,13 @@ public class RobotAgent : behaviac.Agent
         Int32 serverID = 5;
         string loginContent = string.Format("?userName={0}&serverId={1}&isAdult=1", Username, serverID);
 
-        _net = new NetManager();
-        _net.Init(serverID);
-        _net.LoginToBase(loginContent);
         IsTryLogin = true;
     }
 
     [Operation("用户登出", new string[] { })]
     public void Logout()
     {
-        if (_net != null)
-            _net.Destroy();
+        //
         IsLogin = false;
     }
     [Operation("输出日志", new string[] { "Hello Tensorflow!" }, "Hello World!")]
@@ -216,107 +202,70 @@ public class RobotAgent : behaviac.Agent
     [Operation("修改金币数量", new string[] { "金币数量:" })]
     public void ModJinBi(int count)
     {
-        if (Player != null)
-            Player.ModJinBi(count);
     }
     [Operation("修改钻石数量", new string[] { "钻石数量:" })]
     public void ModZuanShi(int count)
     {
-        if (Player != null)
-            Player.ModZuanShi(count);
     }
     [Operation("修改点券数量", new string[] { "点券数量:" })]
     public void ModDianQuan(int count)
     {
-        if (Player != null)
-            Player.ModDianQuan(count);
     }
     [Operation("添加朋友", new string[] { "玩家名称:" })]
     public void AddFriend(string name)
     {
-        if (Player != null)
-            Player.AddFriend(name);
     }
     [Operation("删除朋友", new string[] { "玩家名称:" })]
     public void DelFriend(string name)
     {
-        if (Player != null)
-            Player.DelFriend(name);
     }
     [Operation("设置朋友备注", new string[] { "玩家ID:", "玩家备注" })]
     public void SetFriendNote(ulong id, string note)
     {
-        if (Player != null)
-            Player.SetFriendNote(id, note);
     }
     [Operation("添加黑名单", new string[] { "玩家名称:" })]
     public void AddBlackFriend(string name)
     {
-        if (Player != null)
-            Player.AddBlackFriend(name);
     }
     [Operation("删除黑名单", new string[] { "玩家名称:" })]
     public void DelBlackFriend(string name)
     {
-        if (Player != null)
-            Player.DelBlackFriend(name);
     }
     [Operation("购买装备", new string[] { "物品ID:", "支付方式:", "物品数量:" })]
     public void BuyItem(uint template, sbyte type, short count)
     {
-        if (Player != null)
-            Player.BuyItem(template, type, count);
-
     }
     [Operation("卖出装备", new string[] { "物品ID:", "物品数量:" })]
     public void SellItem(uint template, short count)
     {
-        if (Player != null)
-            Player.SellItem(template, count);
     }
     [Operation("购买VIP", new string[] { "VIP时间:" })]
     public void BuyVIPDuration(short count)
     {
-        if (Player != null)
-            Player.BuyVIPDuration(count);
     }
     [Operation("穿上皮肤", new string[] { "皮肤ID:", "IDX:" })]
     public void DressSkin(uint template, sbyte idx)
     {
-        if (Player != null)
-            Player.DressSkin(template, idx);
     }
     [Operation("发送消息", new string[] { "玩家ID:", "消息内容:" })]
     public void ChatTo(string name, string content)
     {
-        if (Player != null)
-            Player.ChatTo(name, content);
     }
     [Operation("发送邮件", new string[] { "玩家名称:", "邮件标题:", "邮件内容:" })]
     public void SendMail(string target, string title, string content)
     {
-        if (Player != null)
-            Player.SendMail(target, title, content, 0);
     }
     [Operation("添加成就", new string[] { "成就ID:" })]
     public void AddGoal(uint id)
     {
-        if (Player != null)
-            Player.AddGoal(id);
     }
     [Operation("删除成就", new string[] { "成就ID:" })]
     public void DelGoal(uint id)
     {
-        if (Player != null)
-            Player.DelGoal(id);
     }
     [Operation("获取登录奖励", new string[] { })]
     public void TakeLoginReward()
     {
-        if (Player != null)
-        {
-            Player.TakeLoginReward();
-        }
     }
     [Operation("是否拥有这个英雄", new string[] { "英雄ID" })]
     public bool HasHero(uint id)
@@ -324,7 +273,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return false;
         else
         {
-            return Player.HasHero(id);
+            return true;
         }
     }
     [Operation("是否拥有这个物品", new string[] { "物品ID" })]
@@ -333,7 +282,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return false;
         else
         {
-            return Player.HasItem(id);
+            return false;
         }
     }
     [Operation("是否拥有这个皮肤", new string[] { "皮肤ID" })]
@@ -342,7 +291,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return false;
         else
         {
-            return Player.HasSkin(id);
+            return true;
         }
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -352,7 +301,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.JinBi.Value;
+            return 900;
         }
     }
     [ShowValue("钻石数:{0}")]
@@ -361,7 +310,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.ZuanShi.Value;
+            return 11;
         }
     }
 
@@ -371,7 +320,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.DianQuan.Value;
+            return 800;
         }
     }
 
@@ -381,7 +330,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.LoginCount.Value;
+            return 90;
         }
     }
 
@@ -391,7 +340,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return "";
         else
         {
-            return Player.Property.NameAlias.Value;
+            return "lololo";
         }
     }
     [ShowValue("VIP等级:{0}")]
@@ -400,7 +349,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.VIPLevel.Value;
+            return 98;
         }
     }
 
@@ -410,7 +359,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.VIPEndTime.Value;
+            return 68725435343212432;
         }
     }
     [ShowValue("累积登录天数:{0}")]
@@ -419,7 +368,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.AccumulateLoginDayCount.Value;
+            return 89;
         }
     }
     public long GetAccumulateOnlineDuration()
@@ -427,7 +376,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.AccumulateOnlineDuration.Value;
+            return 144245555;
         }
     }
     public long GetLastOnlineTime1970()
@@ -435,7 +384,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.LastOnlineTime1970.Value;
+            return 42342342432423;
         }
     }
     [ShowValue("总计在线时间:{0}")]
@@ -453,7 +402,7 @@ public class RobotAgent : behaviac.Agent
         long t = GetLastOnlineTime1970();
         if (t < 0)
             return string.Empty;
-        DateTime lastLoginDateTime = ViTickCount.GetTime(t);
+        DateTime lastLoginDateTime =DateTime.Now;
         return lastLoginDateTime.ToString();
     }
     [ShowValue("玩家等级:{0}")]
@@ -462,44 +411,44 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return Player.Property.Level.Value;
+            return 90;
         }
     }
     [ShowValue("英雄列表{0}")]
     public ShowValuePairStruct GetHeroList()
     {
         ShowValuePairStruct ret = new ShowValuePairStruct();
-        foreach (var x in Player.Property.HeroList.Array)
-        {
-            var property = x.Value.Property;
-            ret.Add("英雄ID:{0}", x.Key);
-            ret.Add("熟练度:{0}", property.Proficient.Value);
+        //foreach (var x in Player.Property.HeroList.Array)
+        //{
+        //    var property = x.Value.Property;
+        //    ret.Add("英雄ID:{0}", x.Key);
+        //    ret.Add("熟练度:{0}", property.Proficient.Value);
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine();
-            sb.AppendLine("[");
-            for (int i = 0; i < property.SkinList.GetLength(); ++i)
-            {
-                sb.AppendFormat("{0}:   状态:{1}   结束时间{2}", i, (SkinState)property.SkinList[i].State.Value, property.SkinList[i].EndTime.Value);
-                sb.AppendLine();
-            }
-            sb.Append("]");
-            ret.Add("皮肤状态:{0}", sb.ToString());
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.AppendLine();
+        //    sb.AppendLine("[");
+        //    for (int i = 0; i < property.SkinList.GetLength(); ++i)
+        //    {
+        //        sb.AppendFormat("{0}:   状态:{1}   结束时间{2}", i, (SkinState)property.SkinList[i].State.Value, property.SkinList[i].EndTime.Value);
+        //        sb.AppendLine();
+        //    }
+        //    sb.Append("]");
+        //    ret.Add("皮肤状态:{0}", sb.ToString());
 
-        }
+        //}
         return ret;
     }
     [ShowValue("物品列表{0}")]
     public ShowValuePairStruct GetItemList()
     {
         ShowValuePairStruct ret = new ShowValuePairStruct();
-        foreach (var x in Player.Property.ItemList.Array)
-        {
-            var property = x.Property;
-            ret.Add("商品ID:{0}", property.Template.Value);
-            ret.Add("物品ID:{0}", property.ID.Value);
-            ret.Add("物品数量:{0}", property.StackCount.Value);
-        }
+        //foreach (var x in Player.Property.ItemList.Array)
+        //{
+        //    var property = x.Property;
+        //    ret.Add("商品ID:{0}", property.Template.Value);
+        //    ret.Add("物品ID:{0}", property.ID.Value);
+        //    ret.Add("物品数量:{0}", property.StackCount.Value);
+        //}
         return ret;
     }
 
@@ -507,70 +456,36 @@ public class RobotAgent : behaviac.Agent
     public static List<int> GetMarketHeroID()
     {
         List<int> ret = new List<int>();
-        List<ItemMarketStruct> items = ViSealedDB<ItemMarketStruct>.Array;
-        foreach (var item in items)
-        {
-            if (item.Item.Item.Data.Type.Value == (int)ItemType.HERO)
-            {
-                ret.Add(item.ID);
-            }
-        }
+        //List<ItemMarketStruct> items = ViSealedDB<ItemMarketStruct>.Array;
+        //foreach (var item in items)
+        //{
+        //    if (item.Item.Item.Data.Type.Value == (int)ItemType.HERO)
+        //    {
+        //        ret.Add(item.ID);
+        //    }
+        //}
         return ret;
     }
-    public static ItemMarketStruct[] GetMarketHero()
-    {
-        List<ItemMarketStruct> ret = new List<ItemMarketStruct>();
-        List<ItemMarketStruct> items = ViSealedDB<ItemMarketStruct>.Array;
-        foreach (var item in items)
-        {
-            if (item.Item.Item.Data.Type.Value == (int)ItemType.HERO)
-            {
-                ret.Add(item);
-            }
-        }
-        return ret.ToArray();
-    }
+
     [Operation("获取商城中出售的皮肤ID", new string[] { "英雄ID" }, 10030)]
     public static List<int> GetMarketHeroSkinID(int HeroID)
     {
         List<int> ret = new List<int>();
         int prefix = HeroID / 10;
-        List<ItemMarketStruct> items = ViSealedDB<ItemMarketStruct>.Array;
-        foreach (var item in items)
-        {
-            if (prefix == item.ID / 10 && item.Item.Item.Data.Type.Value == (int)ItemType.SKIN)
-            {
-                ret.Add(item.ID);
-            }
-        }
+        //List<ItemMarketStruct> items = ViSealedDB<ItemMarketStruct>.Array;
+        //foreach (var item in items)
+        //{
+        //    if (prefix == item.ID / 10 && item.Item.Item.Data.Type.Value == (int)ItemType.SKIN)
+        //    {
+        //        ret.Add(item.ID);
+        //    }
+        //}
         return ret;
     }
-    public static ItemMarketStruct[] GetMarketHeroSkin(int HeroID)
-    {
-        List<ItemMarketStruct> ret = new List<ItemMarketStruct>();
-        int prefix = HeroID / 10;
-        List<ItemMarketStruct> items = ViSealedDB<ItemMarketStruct>.Array;
-        foreach (var item in items)
-        {
-            if (prefix == item.ID / 10 && item.Item.Item.Data.Type.Value == (int)ItemType.SKIN)
-            {
-                ret.Add(item);
-            }
-        }
-        return ret.ToArray();
-    }
+
     [Operation("尝试购买一个新英雄", new string[] { "支付类型" }, 1)]
     public bool TryBuyAHero(sbyte payType)
     {
-        var heroItems = GetMarketHero();
-        foreach (ItemMarketStruct heroItem in heroItems)
-        {
-            if (HasHero((uint)heroItem.Item.Item.Data.ID))
-                continue;
-
-            BuyItem((uint)heroItem.ID, payType, 1);
-            return true;
-        }
         return false;
     }
     /// <summary>
@@ -581,23 +496,6 @@ public class RobotAgent : behaviac.Agent
     [Operation("尝试购买一个新英雄皮肤", new string[] { "支付类型" }, 1)]
     public bool TryBuyAHeroSkin(sbyte payType)
     {
-        var heroItems = GetMarketHero();
-        foreach (ItemMarketStruct heroItem in heroItems)
-        {
-            int heroID = heroItem.Item.Item.Data.ID;
-            if (!HasHero((uint)heroID))
-                continue;
-
-            var skins = GetMarketHeroSkin(heroID);
-            foreach (var skin in skins)
-            {
-                uint skinID = (uint)skin.Item.Item.Data.ID;
-                if (HasSkin(skinID))
-                    continue;
-                BuyItem(skinID, payType, 1);
-                return true;
-            }
-        }
         return false;
     }
 

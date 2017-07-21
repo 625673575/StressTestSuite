@@ -178,12 +178,12 @@ namespace StressTest
             if (!IsValid || !IsStart)
                 return;
 
-            if (_agent.Net != null)
-            {
-                _agent.Net.Update0();
-                _agent.Net.Update1();
-                ViAsynExecer.UpdateAll(50);
-            }
+            //if (_agent.Net != null)
+            //{
+            //    _agent.Net.Update0();
+            //    _agent.Net.Update1();
+            //    ViAsynExecer.UpdateAll(50);
+            //}
 
             if (_agent._status == behaviac.EBTStatus.BT_RUNNING)
             {

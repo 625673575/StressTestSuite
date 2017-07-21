@@ -54,6 +54,10 @@ namespace StressTest
             SelectGroup = group;
         }
 
+        /// <summary>
+        /// 通过标签提取有用的信息用于显示
+        /// </summary>
+        /// <param name="thread"></param>
         private void ReflectAgentValue(BehaviorThread thread)
         {
             if (thread == null || thread.Agent == null)
@@ -64,7 +68,7 @@ namespace StressTest
             checkBox_IsThreadStart.Checked = thread.Agent.IsLogin;
 
             RobotAgent agent = thread.Agent;
-            if (agent.Player == null || agent.Player.Property == null)
+            //if (agent.Player == null || agent.Player.Property == null)
                 return;
             //方法Attribute提取
             MethodInfo[] methodInfos = agent.GetType().GetMethods();

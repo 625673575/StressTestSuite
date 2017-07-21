@@ -83,6 +83,7 @@
     <Compile Include="BehaviorTreeViewDock.Designer.cs">
       <DependentUpon>BehaviorTreeViewDock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Player.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="ErrorInfoDock.cs">
       <SubType>Form</SubType>
