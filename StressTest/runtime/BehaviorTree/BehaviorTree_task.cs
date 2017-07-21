@@ -515,7 +515,7 @@ namespace behaviac
 
             if (Config.IsLoggingOrSocketing)
             {
-                if (pAgent != null && pAgent.IsMasked())
+                if (!System.Object.ReferenceEquals(pAgent, null) && pAgent.IsMasked())
                 {
                     //BEHAVIAC_PROFILE("GetTickInfo", true);
 
@@ -903,8 +903,6 @@ namespace behaviac
                 Debug.Check(status == EBTStatus.BT_SUCCESS || status == EBTStatus.BT_FAILURE);
                 Debug.Check(this.m_currentTask.m_status == status);
 
-                if (m_currentTask == null)
-                    return EBTStatus.BT_RUNNING;
                 BranchTask parentBranch = this.m_currentTask.GetParent();
 
                 this.m_currentTask = null;

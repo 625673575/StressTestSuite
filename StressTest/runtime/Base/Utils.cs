@@ -33,12 +33,6 @@ using System.Reflection;
 
 namespace behaviac
 {
-    public enum LOGLEVEL
-    {
-        LOG,
-        WARNING,
-        ERROR,
-    }
     public struct CStringID
     {
         private uint m_id;
@@ -590,7 +584,7 @@ namespace behaviac
             {"System.UInt8"     , "ubyte"},
             {"Byte"             , "ubyte"},
             {"System.Byte"      , "ubyte"},
-            {"Char"             , "char"},
+            {"Char"      		, "char"},
             {"System.Char"      , "char"},
             {"Int64"            , "long"},
             {"System.Int64"     , "long"},
@@ -1245,12 +1239,10 @@ namespace behaviac
             }
         }
 
-        public static event Action<string> OnLogEvent;
         //[Conditional("BEHAVIAC_DEBUG")]
-        //[Conditional("UNITY_EDITOR")]
+        [Conditional("UNITY_EDITOR")]
         public static void Log(string message)
         {
-            OnLogEvent?.Invoke(message);
 #if !BEHAVIAC_NOT_USE_UNITY
             UnityEngine.Debug.Log(message);
 #else
@@ -1261,7 +1253,6 @@ namespace behaviac
         //[Conditional("UNITY_EDITOR")]
         public static void LogWarning(string message)
         {
-            OnLogEvent?.Invoke(message);
 #if !BEHAVIAC_NOT_USE_UNITY
             UnityEngine.Debug.LogWarning(message);
 #else
@@ -1272,7 +1263,6 @@ namespace behaviac
         //[Conditional("UNITY_EDITOR")]
         public static void LogError(string message)
         {
-            OnLogEvent?.Invoke(message);
             LogManager.Instance.Flush(null);
 #if !BEHAVIAC_NOT_USE_UNITY
             UnityEngine.Debug.LogError(message);
@@ -1300,6 +1290,7 @@ namespace behaviac
 
 #if !BEHAVIAC_NOT_USE_UNITY
             UnityEngine.Debug.Break();
+            //System.Diagnostics.Debug.Assert(false);
 #else
             //throw new Exception();
             System.Diagnostics.Debug.Assert(false);
@@ -1802,14 +1793,14 @@ namespace behaviac
             return -1;
         }
 
-        private static string RemoveQuot(string str)
+        public static string RemoveQuot(string str)
         {
             const string kQuotStr = "&quot;";
             string ret = str;
 
             if (ret.StartsWith(kQuotStr))
             {
-                Debug.Check(ret.EndsWith(kQuotStr));
+                //Debug.Check(ret.EndsWith(kQuotStr));
                 ret = ret.Replace(kQuotStr, "\"");
             }
 

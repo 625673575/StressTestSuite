@@ -602,7 +602,7 @@ namespace behaviac
 
             Debug.Check(!this.FilePath.EndsWith("\\"), "use '/' instead of '\\'");
 
-            //m_frameSinceStartup = -1;
+            m_frameSinceStartup = -1;
 
 #if !BEHAVIAC_RELEASE
             this.m_workspaceExportPathAbs = Path.GetFullPath(this.FilePath).Replace('\\', '/');
@@ -739,7 +739,7 @@ namespace behaviac
             LogManager.Instance.LogWorkspace(msg);
 
             Workspace.EFileFormat format = this.FileFormat;
-            string formatString = (format == Workspace.EFileFormat.EFF_xml ? "xml" : "bson");
+            string formatString = (format == Workspace.EFileFormat.EFF_bson ? "bson.bytes" : (format == Workspace.EFileFormat.EFF_cs ? "cs" : "xml"));
 
             msg = string.Format("[workspace] {0} \"{1}\"\n", formatString, "");
             LogManager.Instance.LogWorkspace(msg);
@@ -1217,13 +1217,15 @@ namespace behaviac
 #endif
         }
 
+        private int m_frame = 0;
+
         protected void LogFrames()
         {
 #if !BEHAVIAC_RELEASE
 
             if (Config.IsLoggingOrSocketing)
             {
-                LogManager.Instance.Log("[frame]{0}\n", this.FrameSinceStartup);
+                LogManager.Instance.Log("[frame]{0}\n", (this.FrameSinceStartup >= 0) ? this.FrameSinceStartup : (this.m_frame++));
             }
 
 #endif
