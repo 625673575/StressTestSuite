@@ -27,6 +27,8 @@ namespace StressTest
                 return dockPanel;
             }
         }
+        private ErrorInfoDock consoleDock;
+        public ErrorInfoDock ConsoleDock { get { return consoleDock; } }
 
         static void StartNetwork()
         {
@@ -70,7 +72,7 @@ namespace StressTest
             RegisterBehaviorTreeList(btlDock);
             btlDock.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft);
 
-            ErrorInfoDock consoleDock = new ErrorInfoDock();
+            consoleDock = new ErrorInfoDock();
             consoleDock.Show(dockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom);
             Control.CheckForIllegalCrossThreadCalls = false;
             ProcessID = GetProcessCount();

@@ -14,9 +14,13 @@ using StressTest;
 ///<<< END WRITING YOUR CODE
 
 public class RobotAgent : behaviac.Agent
-///<<< BEGIN WRITING YOUR CODE RobotAgent
-///<<< END WRITING YOUR CODE
 {
+    public int FrameCount = 0;
+
+    public void Log(string message)
+    {
+        ErrorInfoDock.WriteLineWithTime(message);
+    }
     public RobotAgent(string name)
     {
         if (string.IsNullOrEmpty(name) || AgentInstances.ContainsKey(name))
@@ -85,14 +89,6 @@ public class RobotAgent : behaviac.Agent
             }
         }
         return count;
-    }
-    public static RobotAgent GetAgent(string agentName)
-    {
-        RobotAgent ret;
-        if (AgentInstances.TryGetValue(agentName, out ret))
-            return ret;
-        else
-            throw new Exception("不存在该Agent实例");
     }
 
     public static ulong GetAgentPlayerID(string task, int index)

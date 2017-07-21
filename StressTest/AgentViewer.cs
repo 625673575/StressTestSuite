@@ -69,7 +69,7 @@ namespace StressTest
 
             RobotAgent agent = thread.Agent;
             //if (agent.Player == null || agent.Player.Property == null)
-                return;
+            //    return;
             //方法Attribute提取
             MethodInfo[] methodInfos = agent.GetType().GetMethods();
             foreach (var info in methodInfos)

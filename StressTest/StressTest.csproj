@@ -35,7 +35,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;BEHAVIAC_NOT_USE_UNITY;BEHAVIAC_RELEASE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;BEHAVIAC_NOT_USE_UNITY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>

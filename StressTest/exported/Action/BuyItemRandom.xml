@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
-<!--Source File: Action\BuyItemRandom.xml-->
-<behavior name="Action/BuyItemRandom" agenttype="RobotAgent" version="5">
-  <node class="Action" id="0">
-    <property Method="Self.RobotAgent::BuyItem(0,0,0)" />
-    <property ResultOption="BT_SUCCESS" />
-  </node>
-</behavior>

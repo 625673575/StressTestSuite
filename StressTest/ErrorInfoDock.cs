@@ -47,7 +47,7 @@ namespace StressTest
         internal static void WriteLineWithTime(string log)
         {
             string dt = DateTime.Now.ToString();
-            string msg = string.Format("[{0}] {1}", dt, log);
+            string msg= string.Format("[{0}] {1}", dt, log);
             WriteLine(msg);
         }
 
@@ -91,14 +91,14 @@ namespace StressTest
 
             this.TabText = "Console";
 
-            behaviac.Debug.OnLogEvent += FrameStatePool_AddLogHandler;
+            //behaviac.Debug.OnLogEvent += FrameStatePool_AddLogHandler;
         }
 
         protected override void OnClosed(EventArgs e)
         {
             _dock = null;
 
-            behaviac.Debug.OnLogEvent -= FrameStatePool_AddLogHandler;
+            //behaviac.Debug.OnLogEvent -= FrameStatePool_AddLogHandler;
 
             base.OnClosed(e);
         }

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
-<!--Source File: Action\Buy.xml-->
-<behavior name="Action/Buy" agenttype="RobotAgent" version="5">
-  <node class="Action" id="0">
-    <property Method="Self.RobotAgent::ModJinBi(5000)" />
-    <property ResultOption="BT_SUCCESS" />
-  </node>
-</behavior>
