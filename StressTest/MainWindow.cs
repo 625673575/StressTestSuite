@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
+
 namespace StressTest
 {
     public partial class MainWindow : Form
@@ -115,6 +117,10 @@ namespace StressTest
             //ErrorInfoDock.WriteLineWithTime("Cao zuo");
             behaviac.Debug.Log("Cao Zuo");
             behaviac.Debug.LogError("Error");
+            NativeInterface.SetArray(new byte[] { 12, 32, 34, 23, 21 }, 5);
+           var ret= NativeInterface.GetByteArrayByPtr(NativeInterface.GetArray(), 5);
+           
+          MessageBox.Show(ret[0].ToString());
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

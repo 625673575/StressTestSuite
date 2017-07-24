@@ -132,7 +132,7 @@ public class RobotAgent : behaviac.Agent
 
 
     public uint Frame;
-    PlayerInterface _player;
+    PlayerInterface _player=new PlayerInterface();
     public EBTStatus _status = behaviac.EBTStatus.BT_RUNNING;
     public PlayerInterface Player { get { return _player; } }
 
@@ -198,6 +198,7 @@ public class RobotAgent : behaviac.Agent
     [Operation("修改金币数量", new string[] { "金币数量:" })]
     public void ModJinBi(int count)
     {
+        Player.JinBi += count;
     }
     [Operation("修改钻石数量", new string[] { "钻石数量:" })]
     public void ModZuanShi(int count)
@@ -297,7 +298,7 @@ public class RobotAgent : behaviac.Agent
         if (Player == null) return -1;
         else
         {
-            return 900;
+            return Player.JinBi;
         }
     }
     [ShowValue("钻石数:{0}")]

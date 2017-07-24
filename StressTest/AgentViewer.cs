@@ -40,6 +40,10 @@ namespace StressTest
             operation = null;
             LabelInputCollection.Clear();
         }
+        /// <summary>
+        /// 点击某个类型的Agent之后刷新所有其他显示的物件
+        /// </summary>
+        /// <param name="name"></param>
         private void BuildAgentThreadViewer(string name)
         {
             BehaviorGroup group;
@@ -48,7 +52,7 @@ namespace StressTest
                 listBoxAgentThread.Items.Clear();
                 foreach (var t in group.BehaviorThreads)
                 {
-                    listBoxAgentThread.Items.Add(t.Agent.GetName());
+                   listBoxAgentThread.Items.Add(t.Agent.GetName());
                 }
             }
             SelectGroup = group;
@@ -409,6 +413,13 @@ namespace StressTest
                 return;
             Form_Text textForm = new Form_Text(listBox_ShowValue.SelectedItem.ToString());
             textForm.ShowDialog();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TableViewer view = new TableViewer();
+            view.SetData(SelectGroup);
+            view.Show();
         }
     }
 }

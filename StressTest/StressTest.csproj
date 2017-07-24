@@ -109,6 +109,7 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="NativeInterface.cs" />
     <Compile Include="NodeTreeList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +194,12 @@
     <Compile Include="runtime\HTN\PlannerTask.cs" />
     <Compile Include="runtime\HTN\Task.cs" />
     <Compile Include="runtime\Workspace.cs" />
+    <Compile Include="TableViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableViewer.Designer.cs">
+      <DependentUpon>TableViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="TaskSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +251,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TableViewer.resx">
+      <DependentUpon>TableViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TaskSetting.resx">
       <DependentUpon>TaskSetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -545,6 +555,11 @@
       <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
       <Name>WinFormsUI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestDLL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

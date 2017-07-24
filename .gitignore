@@ -1,2 +1,8 @@
 /StressTest/bin
 /StressTest/obj
+/StressTest/*.dll
+/StressTest/*.exp
+/StressTest/*.iobj
+/StressTest/*.ipdb
+/StressTest/*.lib
+/StressTest/*.pdb

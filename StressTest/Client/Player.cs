@@ -7,4 +7,5 @@ using System.Threading.Tasks;
 public class PlayerInterface
 {
     public int ID;
+    public int JinBi;
 }

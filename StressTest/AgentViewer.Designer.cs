@@ -33,31 +33,33 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.listBoxAgentGroup = new System.Windows.Forms.ListBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonRefreshAgentGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonRenameList = new System.Windows.Forms.ToolStripButton();
             this.listBoxAgentThread = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox_ApplyAllAgent = new System.Windows.Forms.CheckBox();
             this.button_Operation = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.comboBox_Operation = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox_autoRefreshReflection = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.listBox_ShowValue = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox_IsThreadStart = new System.Windows.Forms.CheckBox();
-            this.textBox_BTName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip_Property = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.复制信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.复制全部信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox_autoRefreshReflection = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox_IsThreadStart = new System.Windows.Forms.CheckBox();
+            this.textBox_BTName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.timer_autoRefreshReflection = new System.Windows.Forms.Timer(this.components);
-            this.toolStripButtonRefreshAgentGroup = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRenameList = new System.Windows.Forms.ToolStripButton();
-            this.checkBox_ApplyAllAgent = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip_AgentThread = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,9 +72,10 @@
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.contextMenuStrip_Property.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.contextMenuStrip_Property.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.contextMenuStrip_AgentThread.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -116,7 +119,7 @@
             // listBoxAgentGroup
             // 
             this.listBoxAgentGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxAgentGroup.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listBoxAgentGroup.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listBoxAgentGroup.FormattingEnabled = true;
             this.listBoxAgentGroup.ItemHeight = 16;
             this.listBoxAgentGroup.Location = new System.Drawing.Point(0, 25);
@@ -138,15 +141,35 @@
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
+            // toolStripButtonRefreshAgentGroup
+            // 
+            this.toolStripButtonRefreshAgentGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRefreshAgentGroup.Image = global::StressTest.Properties.Resources.ICON__0007_39;
+            this.toolStripButtonRefreshAgentGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRefreshAgentGroup.Name = "toolStripButtonRefreshAgentGroup";
+            this.toolStripButtonRefreshAgentGroup.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonRefreshAgentGroup.Text = "toolStripButton3";
+            this.toolStripButtonRefreshAgentGroup.Click += new System.EventHandler(this.toolStripButtonRefreshAgentGroup_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButtonRenameList
+            // 
+            this.toolStripButtonRenameList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRenameList.Image = global::StressTest.Properties.Resources.method;
+            this.toolStripButtonRenameList.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRenameList.Name = "toolStripButtonRenameList";
+            this.toolStripButtonRenameList.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonRenameList.Text = "toolStripButton3";
+            // 
             // listBoxAgentThread
             // 
+            this.listBoxAgentThread.ContextMenuStrip = this.contextMenuStrip_AgentThread;
             this.listBoxAgentThread.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxAgentThread.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listBoxAgentThread.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listBoxAgentThread.FormattingEnabled = true;
             this.listBoxAgentThread.ItemHeight = 16;
             this.listBoxAgentThread.Location = new System.Drawing.Point(0, 0);
@@ -177,6 +200,16 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "请选择";
+            // 
+            // checkBox_ApplyAllAgent
+            // 
+            this.checkBox_ApplyAllAgent.AutoSize = true;
+            this.checkBox_ApplyAllAgent.Location = new System.Drawing.Point(93, 205);
+            this.checkBox_ApplyAllAgent.Name = "checkBox_ApplyAllAgent";
+            this.checkBox_ApplyAllAgent.Size = new System.Drawing.Size(84, 16);
+            this.checkBox_ApplyAllAgent.TabIndex = 2;
+            this.checkBox_ApplyAllAgent.Text = "应用到所有";
+            this.checkBox_ApplyAllAgent.UseVisualStyleBackColor = true;
             // 
             // button_Operation
             // 
@@ -219,10 +252,62 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "属性信息";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(262, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "刷新频率";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(317, 15);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(36, 21);
+            this.numericUpDown1.TabIndex = 7;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // checkBox_autoRefreshReflection
+            // 
+            this.checkBox_autoRefreshReflection.AutoSize = true;
+            this.checkBox_autoRefreshReflection.Location = new System.Drawing.Point(146, 18);
+            this.checkBox_autoRefreshReflection.Name = "checkBox_autoRefreshReflection";
+            this.checkBox_autoRefreshReflection.Size = new System.Drawing.Size(72, 16);
+            this.checkBox_autoRefreshReflection.TabIndex = 6;
+            this.checkBox_autoRefreshReflection.Text = "自动刷新";
+            this.checkBox_autoRefreshReflection.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "刷新";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // listBox_ShowValue
             // 
             this.listBox_ShowValue.ContextMenuStrip = this.contextMenuStrip_Property;
-            this.listBox_ShowValue.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listBox_ShowValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listBox_ShowValue.FormattingEnabled = true;
             this.listBox_ShowValue.ItemHeight = 16;
             this.listBox_ShowValue.Location = new System.Drawing.Point(6, 43);
@@ -231,6 +316,36 @@
             this.listBox_ShowValue.TabIndex = 4;
             this.listBox_ShowValue.SelectedIndexChanged += new System.EventHandler(this.listBox_ShowValue_SelectedIndexChanged);
             this.listBox_ShowValue.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_ShowValue_MouseDoubleClick);
+            // 
+            // contextMenuStrip_Property
+            // 
+            this.contextMenuStrip_Property.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.刷新ToolStripMenuItem,
+            this.复制信息ToolStripMenuItem,
+            this.复制全部信息ToolStripMenuItem});
+            this.contextMenuStrip_Property.Name = "contextMenuStrip_Property";
+            this.contextMenuStrip_Property.Size = new System.Drawing.Size(149, 70);
+            // 
+            // 刷新ToolStripMenuItem
+            // 
+            this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.刷新ToolStripMenuItem.Text = "刷新";
+            this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
+            // 
+            // 复制信息ToolStripMenuItem
+            // 
+            this.复制信息ToolStripMenuItem.Name = "复制信息ToolStripMenuItem";
+            this.复制信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.复制信息ToolStripMenuItem.Text = "复制信息";
+            this.复制信息ToolStripMenuItem.Click += new System.EventHandler(this.复制信息ToolStripMenuItem_Click);
+            // 
+            // 复制全部信息ToolStripMenuItem
+            // 
+            this.复制全部信息ToolStripMenuItem.Name = "复制全部信息ToolStripMenuItem";
+            this.复制全部信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.复制全部信息ToolStripMenuItem.Text = "复制全部信息";
+            this.复制全部信息ToolStripMenuItem.Click += new System.EventHandler(this.复制全部信息ToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -270,121 +385,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "行为树名称";
             // 
-            // contextMenuStrip_Property
-            // 
-            this.contextMenuStrip_Property.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刷新ToolStripMenuItem,
-            this.复制信息ToolStripMenuItem,
-            this.复制全部信息ToolStripMenuItem});
-            this.contextMenuStrip_Property.Name = "contextMenuStrip_Property";
-            this.contextMenuStrip_Property.Size = new System.Drawing.Size(149, 70);
-            // 
-            // 刷新ToolStripMenuItem
-            // 
-            this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.刷新ToolStripMenuItem.Text = "刷新";
-            this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
-            // 
-            // 复制信息ToolStripMenuItem
-            // 
-            this.复制信息ToolStripMenuItem.Name = "复制信息ToolStripMenuItem";
-            this.复制信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.复制信息ToolStripMenuItem.Text = "复制信息";
-            this.复制信息ToolStripMenuItem.Click += new System.EventHandler(this.复制信息ToolStripMenuItem_Click);
-            // 
-            // 复制全部信息ToolStripMenuItem
-            // 
-            this.复制全部信息ToolStripMenuItem.Name = "复制全部信息ToolStripMenuItem";
-            this.复制全部信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.复制全部信息ToolStripMenuItem.Text = "复制全部信息";
-            this.复制全部信息ToolStripMenuItem.Click += new System.EventHandler(this.复制全部信息ToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(15, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "刷新";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // checkBox_autoRefreshReflection
-            // 
-            this.checkBox_autoRefreshReflection.AutoSize = true;
-            this.checkBox_autoRefreshReflection.Location = new System.Drawing.Point(146, 18);
-            this.checkBox_autoRefreshReflection.Name = "checkBox_autoRefreshReflection";
-            this.checkBox_autoRefreshReflection.Size = new System.Drawing.Size(72, 16);
-            this.checkBox_autoRefreshReflection.TabIndex = 6;
-            this.checkBox_autoRefreshReflection.Text = "自动刷新";
-            this.checkBox_autoRefreshReflection.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(317, 15);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(36, 21);
-            this.numericUpDown1.TabIndex = 7;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "刷新频率";
-            // 
             // timer_autoRefreshReflection
             // 
             this.timer_autoRefreshReflection.Enabled = true;
             this.timer_autoRefreshReflection.Tick += new System.EventHandler(this.timer_autoRefreshReflection_Tick);
             // 
-            // toolStripButtonRefreshAgentGroup
+            // contextMenuStrip_AgentThread
             // 
-            this.toolStripButtonRefreshAgentGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRefreshAgentGroup.Image = global::StressTest.Properties.Resources.ICON__0007_39;
-            this.toolStripButtonRefreshAgentGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRefreshAgentGroup.Name = "toolStripButtonRefreshAgentGroup";
-            this.toolStripButtonRefreshAgentGroup.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonRefreshAgentGroup.Text = "toolStripButton3";
-            this.toolStripButtonRefreshAgentGroup.Click += new System.EventHandler(this.toolStripButtonRefreshAgentGroup_Click);
+            this.contextMenuStrip_AgentThread.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip_AgentThread.Name = "contextMenuStrip_Property";
+            this.contextMenuStrip_AgentThread.Size = new System.Drawing.Size(125, 26);
             // 
-            // toolStripButtonRenameList
+            // toolStripMenuItem1
             // 
-            this.toolStripButtonRenameList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRenameList.Image = global::StressTest.Properties.Resources.method;
-            this.toolStripButtonRenameList.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRenameList.Name = "toolStripButtonRenameList";
-            this.toolStripButtonRenameList.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonRenameList.Text = "toolStripButton3";
-            // 
-            // checkBox_ApplyAllAgent
-            // 
-            this.checkBox_ApplyAllAgent.AutoSize = true;
-            this.checkBox_ApplyAllAgent.Location = new System.Drawing.Point(93, 205);
-            this.checkBox_ApplyAllAgent.Name = "checkBox_ApplyAllAgent";
-            this.checkBox_ApplyAllAgent.Size = new System.Drawing.Size(84, 16);
-            this.checkBox_ApplyAllAgent.TabIndex = 2;
-            this.checkBox_ApplyAllAgent.Text = "应用到所有";
-            this.checkBox_ApplyAllAgent.UseVisualStyleBackColor = true;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "显示所有";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // AgentViewer
             // 
@@ -412,10 +430,11 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.contextMenuStrip_Property.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.contextMenuStrip_Property.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.contextMenuStrip_AgentThread.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -450,5 +469,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer_autoRefreshReflection;
         private System.Windows.Forms.CheckBox checkBox_ApplyAllAgent;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip_AgentThread;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
