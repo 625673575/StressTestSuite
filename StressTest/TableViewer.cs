@@ -164,11 +164,23 @@ namespace StressTest
                 ++Count;
             }
         }
-        public static readonly Color[] BackColorTable = new Color[] { Color.White, Color.Gold, Color.Gray, Color.Aquamarine, Color.Azure, Color.GreenYellow,Color.Indigo,Color.Lavender,Color.LightBlue,Color.MediumOrchid,Color.MediumSeaGreen,Color.Olive,Color.PaleVioletRed,Color.SeaGreen,Color.Tomato,Color.Tan };
+        public bool invalidCheckDiffType(object value)
+        {
+            var t = value.GetType();
+            if (t.IsArray || t.IsClass || t.IsGenericType)
+                return true;
+            return false;
+        }
+        public static readonly Color[] BackColorTable = new Color[] { Color.White, Color.Gold, Color.Gray, Color.Aquamarine, Color.Azure, Color.GreenYellow, Color.Indigo, Color.Lavender, Color.LightBlue, Color.MediumOrchid, Color.MediumSeaGreen, Color.Olive, Color.PaleVioletRed, Color.SeaGreen, Color.Tomato, Color.Tan };
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
+            if (dataGridView.ColumnCount < 1 || dataGridView.RowCount < 1)
+                return;
+
             for (int i = 0; i < dataGridView.ColumnCount; i++)
             {
+                if (invalidCheckDiffType(dataGridView[i, 0].Value))
+                    continue;
                 Dictionary<object, Element> kv = new Dictionary<object, Element>();
                 for (int j = 0; j < dataGridView.RowCount - 1; j++)
                 {
