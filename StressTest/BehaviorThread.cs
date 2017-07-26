@@ -188,7 +188,8 @@ namespace StressTest
             if (_agent._status == behaviac.EBTStatus.BT_RUNNING)
             {
                 // Console.WriteLine(" frame {0} name {1}", ++_agent.Frame, _agent.GetName());
-
+                if (behaviac.Config.IsSocketBlocking)
+                    behaviac.Workspace.Instance.DebugUpdate();
                 _agent._status = _agent.btexec();
 
             }

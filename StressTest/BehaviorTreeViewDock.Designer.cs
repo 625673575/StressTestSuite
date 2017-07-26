@@ -136,12 +136,13 @@
             this.InfoContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearAllToolStripMenuItem});
             this.InfoContextMenu.Name = "InfoContextMenu";
-            this.InfoContextMenu.Size = new System.Drawing.Size(121, 26);
+            this.InfoContextMenu.Size = new System.Drawing.Size(153, 48);
+            this.InfoContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.InfoContextMenu_Opening);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearAllToolStripMenuItem.Text = "ClearAll";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
@@ -151,7 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 419);
             this.Controls.Add(this.splitContainer1);
-            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "BehaviorTreeViewDock";
             this.Text = "BehaviorTreeViewDock";
             this.Load += new System.EventHandler(this.BehaviorTreeViewDock_Load);

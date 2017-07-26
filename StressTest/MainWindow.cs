@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Runtime.InteropServices;
-
 namespace StressTest
 {
     public partial class MainWindow : Form
@@ -34,13 +32,6 @@ namespace StressTest
 
         static void StartNetwork()
         {
-            //ViSerializer.Start();
-            //ViSerializer<ViVector3>.AppendExec = ViVector3Serializer.Append;
-            //ViSerializer<ViVector3>.ReadExec = ViVector3Serializer.Read;
-            //ViSerializer<ViVector3>.ReadStringExec = ViVector3Serializer.Read;
-            //ViSerializer<ViVector3>.AppendDictionaryStringExec = ViVector3Serializer.Append;
-            //ViSerializer<ViVector3>.ReadDictionaryStringExec = ViVector3Serializer.Read;
-
             //GameDataManager.Instance.Start();
             //YXBXNormalDataEx.Start();
             //YXBXScript.Start();
@@ -48,10 +39,11 @@ namespace StressTest
         }
         static bool InitBehavic()
         {
-            Console.WriteLine("InitBehavic");
+            ErrorInfoDock.WriteLine("InitBehavic");
             behaviac.Workspace.Instance.FilePath = Plugin.BehaviorExported;
             behaviac.Workspace.Instance.FileFormat = behaviac.Workspace.EFileFormat.EFF_xml;
-
+            behaviac.Config.IsSocketBlocking = false;
+            behaviac.Config.SocketPort = 60636;
             return true;
         }
 
@@ -118,9 +110,9 @@ namespace StressTest
             behaviac.Debug.Log("Cao Zuo");
             behaviac.Debug.LogError("Error");
             NativeInterface.SetArray(new byte[] { 12, 32, 34, 23, 21 }, 5);
-           var ret= NativeInterface.GetByteArrayByPtr(NativeInterface.GetArray(), 5);
-           
-          MessageBox.Show(ret[0].ToString());
+            var ret = NativeInterface.GetByteArrayByPtr(NativeInterface.GetArray(), 5);
+
+            MessageBox.Show(ret[0].ToString());
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -251,6 +243,13 @@ namespace StressTest
         private void 查看活动AgentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowAgentViewer();
+        }
+
+        private void toolStripMenuItem_debugMode_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem_debugMode.Checked = !toolStripMenuItem_debugMode.Checked;
+            behaviac.Config.IsSocketBlocking = toolStripMenuItem_debugMode.Checked;
+            ErrorInfoDock.WriteLine(!toolStripMenuItem_debugMode.Checked ? "不使用远程调试" : "使用远程调试");
         }
     }
 }

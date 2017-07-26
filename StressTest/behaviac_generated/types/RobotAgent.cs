@@ -19,7 +19,7 @@ public class RobotAgent : behaviac.Agent
 
     public void Log(string message)
     {
-        ErrorInfoDock.WriteLineWithTime(message);
+        OnAgentLogCallback(GetName()+":"+ message);
     }
     public RobotAgent(string name)
     {

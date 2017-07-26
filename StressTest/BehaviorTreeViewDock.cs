@@ -175,9 +175,10 @@ namespace StressTest
 
         static BehaviorTreeViewDock()
         {
-            Workspace.Instance.UseIntValue = true;
+            //Workspace.Instance.UseIntValue = true;
             Workspace.Instance.FrameSinceStartup=0;
             _startTime = DateTime.Now;
+            Workspace.Instance.TimeSinceStartup = _startTime.Ticks/ 10000000.0;
             t.Interval = 50;
             t.Tick += Tick;
             t.Start();
@@ -187,6 +188,7 @@ namespace StressTest
         {
             BehaviorThreadManager.Update();
             Workspace.Instance.IntValueSinceStartup = (long)(DateTime.Now - _startTime).TotalMilliseconds;
+            Workspace.Instance.TimeSinceStartup = DateTime.Now.Ticks/ 10000000.0;
             ++Workspace.Instance.FrameSinceStartup;
         }
 
@@ -202,6 +204,11 @@ namespace StressTest
         private void InfoViewer_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainWindow.Instance.ShowAgentViewer(RelativeFilePath);
+        }
+
+        private void InfoContextMenu_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
