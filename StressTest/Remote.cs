@@ -17,21 +17,21 @@ namespace StressTest
         {
             InitializeComponent();
         }
-
+        Greeter.GreeterClient client;
         private void button1_Click(object sender, EventArgs e)
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
-            var client = new Greeter.GreeterClient(channel);
-            string user = "you"; 
+            client = new Greeter.GreeterClient(channel);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             Int32[] x = new Int32[] { 1234, 232, 12, 23 };
             var reply = new AddReply();
             reply.Result.AddRange(x);
-            AsyncUnaryCall < Int32Reply > ret=client.RemoteReduceSumAsync(reply);
-            ret.GetAwaiter().OnCompleted(() => MessageBox.Show(" fjdksljfadsl "+ret.ResponseAsync.Result));
-            Console.WriteLine("Greeting: " + ret);
-
-           // channel.ShutdownAsync().Wait();
+            AsyncUnaryCall<Int32Reply> ret = client.RemoteReduceSumAsync(reply);
+            ret.GetAwaiter().OnCompleted(() => MessageBox.Show(" fjdksljfadsl " + ret.ResponseAsync.Result));
         }
     }
 }
