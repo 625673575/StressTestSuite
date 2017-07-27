@@ -52,7 +52,7 @@ namespace StressTest
                 listBoxAgentThread.Items.Clear();
                 foreach (var t in group.BehaviorThreads)
                 {
-                   listBoxAgentThread.Items.Add(t.Agent.GetName());
+                    listBoxAgentThread.Items.Add(t.Agent.GetName());
                 }
             }
             SelectGroup = group;
@@ -169,6 +169,22 @@ namespace StressTest
             }
 
         }
+
+        public void ReflectBehaviacProperty(BehaviorThread thread)
+        {
+            listBox_ShowProp.Items.Clear();
+            var agent = thread.Agent;
+            foreach (var property in behaviac.AgentMeta._AgentMetas_.Values)
+            {
+                foreach (var info in property.GetMemberProperties())
+                {
+                    var l = info.Value;
+                    string propName = l.Name;
+                    string propValue = l.GetValueObject(agent).ToString();
+                    listBox_ShowProp.Items.Add(string.Format("{0}:{1}", propName, propValue));
+                }
+            }
+        }
         public void SelectAgentGroup(string catalogy)
         {
             for (int i = 0; i < listBoxAgentGroup.Items.Count; ++i)
@@ -210,6 +226,7 @@ namespace StressTest
             {
                 SelectThread = SelectGroup[index];
                 ReflectAgentValue(SelectThread);
+                ReflectBehaviacProperty(SelectThread);
                 ReflectAgentOperation(SelectThread);
             }
         }
@@ -420,6 +437,28 @@ namespace StressTest
             TableViewer view = new TableViewer();
             view.SetData(SelectGroup);
             view.Show();
+        }
+
+        private void AgentViewer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_ModifyProperty_Click(object sender, EventArgs e)
+        {
+            int sel = listBox_ShowProp.SelectedIndex;
+            if (listBox_ShowProp.SelectedIndex > -1)
+            {
+                string selectItemStr = listBox_ShowProp.SelectedItem.ToString();
+                string variableName = selectItemStr.Substring(0, selectItemStr.IndexOf(":"));
+                SelectThread.Agent.SetVariableFromString(variableName, textBox_PropertyValue.Text);
+                listBox_ShowProp.SetSelected(sel, true);
+            }
+            else
+            {
+                MessageBox.Show("请选择需要修改的属性条目");
+            }
+            ReflectBehaviacProperty(SelectThread);
         }
     }
 }

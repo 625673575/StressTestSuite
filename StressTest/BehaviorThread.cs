@@ -191,7 +191,6 @@ namespace StressTest
                 if (behaviac.Config.IsSocketBlocking)
                     behaviac.Workspace.Instance.DebugUpdate();
                 _agent._status = _agent.btexec();
-
             }
         }
         public void End()

@@ -40,6 +40,8 @@
             this.listBox = new System.Windows.Forms.ListBox();
             this.InfoContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBox_task = new System.Windows.Forms.CheckedListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -94,12 +96,13 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Location = new System.Drawing.Point(92, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(586, 292);
+            this.textBox1.Size = new System.Drawing.Size(389, 292);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "fdsafdsff";
             // 
             // splitContainer1
             // 
@@ -110,12 +113,14 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.listBox_task);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.listBox);
-            this.splitContainer1.Size = new System.Drawing.Size(709, 419);
+            this.splitContainer1.Size = new System.Drawing.Size(1121, 419);
             this.splitContainer1.SplitterDistance = 307;
             this.splitContainer1.SplitterIncrement = 2;
             this.splitContainer1.TabIndex = 3;
@@ -128,7 +133,7 @@
             this.listBox.ItemHeight = 12;
             this.listBox.Location = new System.Drawing.Point(0, 0);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(709, 108);
+            this.listBox.Size = new System.Drawing.Size(1121, 108);
             this.listBox.TabIndex = 0;
             // 
             // InfoContextMenu
@@ -136,21 +141,39 @@
             this.InfoContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearAllToolStripMenuItem});
             this.InfoContextMenu.Name = "InfoContextMenu";
-            this.InfoContextMenu.Size = new System.Drawing.Size(153, 48);
+            this.InfoContextMenu.Size = new System.Drawing.Size(121, 26);
             this.InfoContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.InfoContextMenu_Opening);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.clearAllToolStripMenuItem.Text = "ClearAll";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
+            // 
+            // listBox_task
+            // 
+            this.listBox_task.FormattingEnabled = true;
+            this.listBox_task.Location = new System.Drawing.Point(3, 3);
+            this.listBox_task.Name = "listBox_task";
+            this.listBox_task.Size = new System.Drawing.Size(72, 260);
+            this.listBox_task.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 272);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "修改激活";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BehaviorTreeViewDock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 419);
+            this.ClientSize = new System.Drawing.Size(1121, 419);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "BehaviorTreeViewDock";
@@ -181,5 +204,7 @@
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.ContextMenuStrip InfoContextMenu;
         private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
+        private System.Windows.Forms.CheckedListBox listBox_task;
+        private System.Windows.Forms.Button button1;
     }
 }

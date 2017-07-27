@@ -26,6 +26,12 @@ namespace StressTest
             TaskMaxDelay = maxdelay;
             BehaviorThreadManager.CreateBehaviorThread(listBox, RelativeFilePath, TaskCount);
             BehaviorThreadManager.Start(RelativeFilePath, TaskMinDelay, TaskMaxDelay);
+
+            for (int i = 0; i < taskCount; i++)
+            {
+                int index = listBox_task.Items.Add(i);
+                listBox_task.SetItemChecked(index, true);
+            }
         }
         public BehaviorTreeViewDock(NodeTag node)
         {
@@ -45,7 +51,7 @@ namespace StressTest
                     }
 
                 }
-                this.Text =node.ShowText;
+                this.Text = node.ShowText;
                 this.textBox1.Text = File.ReadAllText(node.Filename);
             }
             else
@@ -122,6 +128,10 @@ namespace StressTest
             {
             }
         }
+        public void AddTaskToListBox()
+        {
+
+        }
         protected override void OnClosed(EventArgs e)
         {
             BehaviorThreadManager.End(RelativeFilePath);
@@ -176,9 +186,9 @@ namespace StressTest
         static BehaviorTreeViewDock()
         {
             //Workspace.Instance.UseIntValue = true;
-            Workspace.Instance.FrameSinceStartup=0;
+            Workspace.Instance.FrameSinceStartup = 0;
             _startTime = DateTime.Now;
-            Workspace.Instance.TimeSinceStartup = _startTime.Ticks/ 10000000.0;
+            Workspace.Instance.TimeSinceStartup = _startTime.Ticks / 10000000.0;
             t.Interval = 50;
             t.Tick += Tick;
             t.Start();
@@ -188,7 +198,7 @@ namespace StressTest
         {
             BehaviorThreadManager.Update();
             Workspace.Instance.IntValueSinceStartup = (long)(DateTime.Now - _startTime).TotalMilliseconds;
-            Workspace.Instance.TimeSinceStartup = DateTime.Now.Ticks/ 10000000.0;
+            Workspace.Instance.TimeSinceStartup = DateTime.Now.Ticks / 10000000.0;
             ++Workspace.Instance.FrameSinceStartup;
         }
 
@@ -197,18 +207,31 @@ namespace StressTest
             listBox.Items.Clear();
         }
 
-        private void BehaviorTreeViewDock_Load(object sender, EventArgs e)
-        {
-        }
 
         private void InfoViewer_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainWindow.Instance.ShowAgentViewer(RelativeFilePath);
         }
 
+        private void BehaviorTreeViewDock_Load(object sender, EventArgs e)
+        {
+        }
         private void InfoContextMenu_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listBox_task.SelectedIndex > -1)
+            {
+                for (int i = 0; i < listBox_task.Items.Count; i++)
+                {
+                    bool active = listBox_task.GetItemChecked(i);
+                    BehaviorThreadManager.ThreadGroups[RelativeFilePath].BehaviorThreads[i].Agent.SetActive(active);
+
+                }
+            }
         }
     }
 }

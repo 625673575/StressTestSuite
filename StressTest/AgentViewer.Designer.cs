@@ -37,6 +37,10 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonRenameList = new System.Windows.Forms.ToolStripButton();
             this.listBoxAgentThread = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip_AgentThread = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox_ApplyAllAgent = new System.Windows.Forms.CheckBox();
@@ -58,8 +62,9 @@
             this.textBox_BTName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer_autoRefreshReflection = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStrip_AgentThread = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBox_ShowProp = new System.Windows.Forms.ListBox();
+            this.textBox_PropertyValue = new System.Windows.Forms.TextBox();
+            this.button_ModifyProperty = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,13 +74,15 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            this.contextMenuStrip_AgentThread.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.contextMenuStrip_Property.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.contextMenuStrip_AgentThread.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -90,11 +97,13 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox6);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox4);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(627, 781);
-            this.splitContainer1.SplitterDistance = 208;
+            this.splitContainer1.Size = new System.Drawing.Size(1086, 781);
+            this.splitContainer1.SplitterDistance = 189;
             this.splitContainer1.TabIndex = 2;
             // 
             // splitContainer2
@@ -112,7 +121,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listBoxAgentThread);
-            this.splitContainer2.Size = new System.Drawing.Size(208, 781);
+            this.splitContainer2.Size = new System.Drawing.Size(189, 781);
             this.splitContainer2.SplitterDistance = 390;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -124,7 +133,7 @@
             this.listBoxAgentGroup.ItemHeight = 16;
             this.listBoxAgentGroup.Location = new System.Drawing.Point(0, 25);
             this.listBoxAgentGroup.Name = "listBoxAgentGroup";
-            this.listBoxAgentGroup.Size = new System.Drawing.Size(208, 365);
+            this.listBoxAgentGroup.Size = new System.Drawing.Size(189, 365);
             this.listBoxAgentGroup.TabIndex = 3;
             this.listBoxAgentGroup.SelectedIndexChanged += new System.EventHandler(this.listBoxAgentGroup_SelectedIndexChanged);
             this.listBoxAgentGroup.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxAgentGroup_MouseDoubleClick);
@@ -137,7 +146,7 @@
             this.toolStripButtonRenameList});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(208, 25);
+            this.toolStrip.Size = new System.Drawing.Size(189, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -174,9 +183,44 @@
             this.listBoxAgentThread.ItemHeight = 16;
             this.listBoxAgentThread.Location = new System.Drawing.Point(0, 0);
             this.listBoxAgentThread.Name = "listBoxAgentThread";
-            this.listBoxAgentThread.Size = new System.Drawing.Size(208, 387);
+            this.listBoxAgentThread.Size = new System.Drawing.Size(189, 387);
             this.listBoxAgentThread.TabIndex = 4;
             this.listBoxAgentThread.SelectedIndexChanged += new System.EventHandler(this.listBoxAgentThread_SelectedIndexChanged);
+            // 
+            // contextMenuStrip_AgentThread
+            // 
+            this.contextMenuStrip_AgentThread.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip_AgentThread.Name = "contextMenuStrip_Property";
+            this.contextMenuStrip_AgentThread.Size = new System.Drawing.Size(125, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem1.Text = "显示所有";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button_ModifyProperty);
+            this.groupBox6.Controls.Add(this.textBox_PropertyValue);
+            this.groupBox6.Location = new System.Drawing.Point(431, 413);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(451, 365);
+            this.groupBox6.TabIndex = 10;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "行为树属性修改";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.listBox_ShowProp);
+            this.groupBox5.Location = new System.Drawing.Point(431, 13);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(451, 394);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "行为树属性信息";
             // 
             // groupBox4
             // 
@@ -390,29 +434,44 @@
             this.timer_autoRefreshReflection.Enabled = true;
             this.timer_autoRefreshReflection.Tick += new System.EventHandler(this.timer_autoRefreshReflection_Tick);
             // 
-            // contextMenuStrip_AgentThread
+            // listBox_ShowProp
             // 
-            this.contextMenuStrip_AgentThread.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip_AgentThread.Name = "contextMenuStrip_Property";
-            this.contextMenuStrip_AgentThread.Size = new System.Drawing.Size(125, 26);
+            this.listBox_ShowProp.ContextMenuStrip = this.contextMenuStrip_Property;
+            this.listBox_ShowProp.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listBox_ShowProp.FormattingEnabled = true;
+            this.listBox_ShowProp.ItemHeight = 16;
+            this.listBox_ShowProp.Location = new System.Drawing.Point(6, 22);
+            this.listBox_ShowProp.Name = "listBox_ShowProp";
+            this.listBox_ShowProp.Size = new System.Drawing.Size(439, 356);
+            this.listBox_ShowProp.TabIndex = 5;
             // 
-            // toolStripMenuItem1
+            // textBox_PropertyValue
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "显示所有";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.textBox_PropertyValue.Location = new System.Drawing.Point(16, 21);
+            this.textBox_PropertyValue.Name = "textBox_PropertyValue";
+            this.textBox_PropertyValue.Size = new System.Drawing.Size(327, 21);
+            this.textBox_PropertyValue.TabIndex = 0;
+            // 
+            // button_ModifyProperty
+            // 
+            this.button_ModifyProperty.Location = new System.Drawing.Point(368, 21);
+            this.button_ModifyProperty.Name = "button_ModifyProperty";
+            this.button_ModifyProperty.Size = new System.Drawing.Size(75, 23);
+            this.button_ModifyProperty.TabIndex = 1;
+            this.button_ModifyProperty.Text = "修改";
+            this.button_ModifyProperty.UseVisualStyleBackColor = true;
+            this.button_ModifyProperty.Click += new System.EventHandler(this.button_ModifyProperty_Click);
             // 
             // AgentViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 781);
+            this.ClientSize = new System.Drawing.Size(1086, 781);
             this.Controls.Add(this.splitContainer1);
             this.Name = "AgentViewer";
             this.Text = "AgentViewer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgentViewer_FormClosing);
+            this.Load += new System.EventHandler(this.AgentViewer_Load);
             this.VisibleChanged += new System.EventHandler(this.AgentViewer_VisibleChanged);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -425,6 +484,10 @@
             this.splitContainer2.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.contextMenuStrip_AgentThread.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -434,7 +497,6 @@
             this.contextMenuStrip_Property.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.contextMenuStrip_AgentThread.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -471,5 +533,10 @@
         private System.Windows.Forms.CheckBox checkBox_ApplyAllAgent;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip_AgentThread;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ListBox listBox_ShowProp;
+        private System.Windows.Forms.Button button_ModifyProperty;
+        private System.Windows.Forms.TextBox textBox_PropertyValue;
     }
 }
