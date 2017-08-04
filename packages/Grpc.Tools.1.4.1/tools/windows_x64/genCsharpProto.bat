@@ -1,0 +1,1 @@
+protoc --csharp_out=D:\CommonCode\StressTestSuite\StressTest\helloworld *.proto

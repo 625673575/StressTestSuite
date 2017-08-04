@@ -1,0 +1,1 @@
+protoc --grpc_out D:\CommonCode\StressTestSuite\StressTest\helloworld *.proto --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe

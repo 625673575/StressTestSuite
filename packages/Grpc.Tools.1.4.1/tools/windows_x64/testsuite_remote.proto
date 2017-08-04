@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package remote;
+
+service RemoteService {
+  rpc ExecCmd (CmdRequest) returns (LogReply) {}
+  rpc CaptureScreen (ScreenArea) returns (ImageData) {}
+}
+
+enum LOG_TYPE {
+Debug=0;
+Warning=1;
+Error=2;
+}
+message Log {
+    LOG_TYPE LogType = 1;
+    string  Content = 2;
+}
+message ScreenArea{
+bool FullScreen=1;
+int32 x=2;
+int32 y=3;
+int32 w=4;
+int32 h=5;
+}
+//Request
+message CmdRequest {
+  string Cmd = 1;
+ repeated string Args=2;
+}
+//Reply
+message LogReply{
+    repeated Log Logs=1;
+}
+message ImageData{
+    bytes Data=1;
+}
