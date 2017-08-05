@@ -3,35 +3,75 @@ syntax = "proto3";
 package remote;
 
 service RemoteService {
-  rpc ExecCmd (CmdRequest) returns (LogReply) {}
-  rpc CaptureScreen (ScreenArea) returns (ImageData) {}
+    rpc ExecCmd (CmdRequest) returns (LogReply) {}
+    rpc CaptureScreen (CaptureParams) returns (ImageData) {}
+    rpc MouseClick(MouseClickRequest) returns (Log){}
+    rpc KeyTap(KeyTapRequest) returns (Log){}
+    rpc KeyListTap(KeyListTapRequest) returns (Log){}
+    rpc GetMousePosition(Nil) returns (MousePosition){}
 }
 
 enum LOG_TYPE {
-Debug=0;
-Warning=1;
-Error=2;
+    Debug=0;
+    Warning=1;
+    Error=2;
+}
+ enum MouseButtons
+{
+    None = 0;
+    Left = 1048576;
+    Right = 2097152;
+    Middle = 4194304;
+    XButton1 = 8388608;
+    XButton2 = 16777216;
 }
 message Log {
     LOG_TYPE LogType = 1;
     string  Content = 2;
 }
-message ScreenArea{
-bool FullScreen=1;
-int32 x=2;
-int32 y=3;
-int32 w=4;
-int32 h=5;
+message Nil{}
+message CaptureParams{
+    bool FullScreen=1;
+    int32 x=2;
+    int32 y=3;
+    int32 w=4;
+    int32 h=5;
+    int32 Quality=6;
 }
 //Request
 message CmdRequest {
-  string Cmd = 1;
- repeated string Args=2;
+    string Cmd = 1;
+    repeated string Args=2;
 }
+message MouseClickRequest{
+    int32 x=1;
+    int32 y=2;
+    bool DoubleClick=3;
+    MouseButtons Button=4;
+}
+message MouseMoveRequest{
+	int32 x=1;
+	int32 y=2;
+	float Low=3;
+	float High=4;
+}
+message KeyTapRequest{
+    repeated string KeyCode=1;
+    float Delay=2;
+}
+message KeyListTapRequest{
+    repeated KeyTapRequest Keys=1;
+}
+
 //Reply
 message LogReply{
     repeated Log Logs=1;
 }
 message ImageData{
-    bytes Data=1;
+    int64 TimeStamp=1;
+    bytes Data=2;
+}
+message MousePosition{
+    int32 x=1;
+    int32 y=2;
 }

@@ -46,6 +46,7 @@
             this.查看活动AgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.更改用例名称ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.远程控制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,7 +190,8 @@
             // 工具ToolStripMenuItem
             // 
             this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.更改用例名称ToolStripMenuItem});
+            this.更改用例名称ToolStripMenuItem,
+            this.远程控制ToolStripMenuItem});
             this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
             this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.工具ToolStripMenuItem.Text = "工具";
@@ -197,8 +199,15 @@
             // 更改用例名称ToolStripMenuItem
             // 
             this.更改用例名称ToolStripMenuItem.Name = "更改用例名称ToolStripMenuItem";
-            this.更改用例名称ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.更改用例名称ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.更改用例名称ToolStripMenuItem.Text = "更改用例名称";
+            // 
+            // 远程控制ToolStripMenuItem
+            // 
+            this.远程控制ToolStripMenuItem.Name = "远程控制ToolStripMenuItem";
+            this.远程控制ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.远程控制ToolStripMenuItem.Text = "远程控制";
+            this.远程控制ToolStripMenuItem.Click += new System.EventHandler(this.远程控制ToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -239,6 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem 多少个尝试过登录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查看活动AgentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_debugMode;
+        private System.Windows.Forms.ToolStripMenuItem 远程控制ToolStripMenuItem;
     }
 }
 

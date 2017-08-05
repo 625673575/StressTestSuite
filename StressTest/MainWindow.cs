@@ -251,5 +251,11 @@ namespace StressTest
             behaviac.Config.IsSocketBlocking = toolStripMenuItem_debugMode.Checked;
             ErrorInfoDock.WriteLine(!toolStripMenuItem_debugMode.Checked ? "不使用远程调试" : "使用远程调试");
         }
+
+        private void 远程控制ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoteForm remoteWindow = new RemoteForm();
+            remoteWindow.Show();
+        }
     }
 }

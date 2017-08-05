@@ -16,7 +16,7 @@ namespace StressTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Remote());
+            Application.Run(new RemoteForm());
         }
     }
 }

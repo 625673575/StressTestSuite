@@ -108,8 +108,6 @@
     <Compile Include="Form_Text.Designer.cs">
       <DependentUpon>Form_Text.cs</DependentUpon>
     </Compile>
-    <Compile Include="helloworld\Helloworld.cs" />
-    <Compile Include="helloworld\HelloworldGrpc.cs" />
     <Compile Include="LabelInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,6 +211,8 @@
     <Compile Include="runtime\HTN\PlannerTask.cs" />
     <Compile Include="runtime\HTN\Task.cs" />
     <Compile Include="runtime\Workspace.cs" />
+    <Compile Include="Services\TestsuiteRemote.cs" />
+    <Compile Include="Services\TestsuiteRemoteGrpc.cs" />
     <Compile Include="TableViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,7 +285,6 @@
     <EmbeddedResource Include="WorkspaceTreeList.resx">
       <DependentUpon>WorkspaceTreeList.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="helloworld\helloworld.proto" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -296,6 +295,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Server\main.go" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
