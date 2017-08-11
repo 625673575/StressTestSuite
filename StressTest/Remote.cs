@@ -22,7 +22,6 @@ namespace StressTest
 
             client = new RemoteService.RemoteServiceClient(channel);
             PauseCapture = false;
-            groupBox1.Enabled = true;
         }
 
         private void button_CaptureClick(object sender, EventArgs e)
@@ -87,33 +86,19 @@ namespace StressTest
             float[] delay = new float[] { 1.0f, 2.0f, 5.0f };
             TapManyKey(s, delay);
         }
-        public void SendCmd(string cmd, string[] args)
+        public void SendCmd()
         {
             CmdRequest request = new CmdRequest();
-            request.Cmd = cmd;
-            foreach (var arg in args)
-                request.Args.Add(arg);
+            request.Cmd = "getScrenSize";
+            request.Args.Add("klj");
+            request.Args.Add("re");
             var log = client.ExecCmd(request);
             MessageBox.Show(log.Logs.ToString());
         }
         private void button_Click_Click(object sender, EventArgs e)
         {
-            string[] s = textBox_cmd.Text.Split(' ');
-            if (s.Length < 0 || s[0].Length == 0)
-            {
-                MessageBox.Show("请输入命令");
-                return;
-            }
-            else
-            {
-                List<string> args = new List<string>();
-                for (int i = 1; i < s.Length; i++)
-                {
-                    args.Add(s[i]);
-                }
-                SendCmd(s[0], args.ToArray());
-            }
-
+            SendCmd();
+           
         }
 
         private void Remote_FormClosing(object sender, FormClosingEventArgs e)
@@ -147,11 +132,6 @@ namespace StressTest
         private void pictureBox_Captured_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void RemoteForm_Load(object sender, EventArgs e)
-        {
-            groupBox1.Enabled = false;
         }
     }
 }
