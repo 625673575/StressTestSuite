@@ -9,6 +9,15 @@ service RemoteService {
     rpc KeyTap(KeyTapRequest) returns (Log){}
     rpc KeyListTap(KeyListTapRequest) returns (Log){}
     rpc GetMousePosition(Nil) returns (MousePosition){}
+    rpc ListDir(CmdRequest) returns (FileEntrys){}
+    rpc ListDisk(Nil)returns (Log){}
+    rpc ReadFile(CmdRequest) returns (FileData){}
+    rpc ReadText(CmdRequest) returns (Log){}
+    rpc CreateFile(FileData) returns (Log){}
+    rpc CreateText(CmdRequest) returns (Log){}
+    rpc Rename(CmdRequest) returns (Log){}
+    rpc DeleteFile(CmdRequest) returns (Log){}
+    rpc DeleteFolder(CmdRequest) returns (Log){}
 }
 
 enum LOG_TYPE {
@@ -25,6 +34,7 @@ enum LOG_TYPE {
     XButton1 = 8388608;
     XButton2 = 16777216;
 }
+
 message Log {
     LOG_TYPE LogType = 1;
     string  Content = 2;
@@ -74,4 +84,18 @@ message ImageData{
 message MousePosition{
     int32 x=1;
     int32 y=2;
+}
+//File
+message FileEntry{
+    bool  IsDir=1;
+    string FullName=2;
+    int64  ModeTime=3;
+}
+message FileEntrys{
+    int32 Count=1;
+    repeated FileEntry Entrys=2;
+}
+message FileData{
+    string FullName=1;
+    bytes Data=2;
 }

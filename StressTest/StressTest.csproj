@@ -136,6 +136,7 @@
     <Compile Include="Remote.Designer.cs">
       <DependentUpon>Remote.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemoteClient.cs" />
     <Compile Include="runtime\Agent\Agent.cs" />
     <Compile Include="runtime\Agent\Context.cs" />
     <Compile Include="runtime\Base\Attributs.cs" />

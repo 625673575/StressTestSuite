@@ -22,6 +22,8 @@ namespace Remote {
     static readonly grpc::Marshaller<global::Remote.KeyListTapRequest> __Marshaller_KeyListTapRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Remote.KeyListTapRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Remote.Nil> __Marshaller_Nil = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Remote.Nil.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Remote.MousePosition> __Marshaller_MousePosition = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Remote.MousePosition.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Remote.FileEntrys> __Marshaller_FileEntrys = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Remote.FileEntrys.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Remote.FileData> __Marshaller_FileData = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Remote.FileData.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.LogReply> __Method_ExecCmd = new grpc::Method<global::Remote.CmdRequest, global::Remote.LogReply>(
         grpc::MethodType.Unary,
@@ -65,6 +67,69 @@ namespace Remote {
         __Marshaller_Nil,
         __Marshaller_MousePosition);
 
+    static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.FileEntrys> __Method_ListDir = new grpc::Method<global::Remote.CmdRequest, global::Remote.FileEntrys>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListDir",
+        __Marshaller_CmdRequest,
+        __Marshaller_FileEntrys);
+
+    static readonly grpc::Method<global::Remote.Nil, global::Remote.Log> __Method_ListDisk = new grpc::Method<global::Remote.Nil, global::Remote.Log>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListDisk",
+        __Marshaller_Nil,
+        __Marshaller_Log);
+
+    static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.FileData> __Method_ReadFile = new grpc::Method<global::Remote.CmdRequest, global::Remote.FileData>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ReadFile",
+        __Marshaller_CmdRequest,
+        __Marshaller_FileData);
+
+    static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.Log> __Method_ReadText = new grpc::Method<global::Remote.CmdRequest, global::Remote.Log>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ReadText",
+        __Marshaller_CmdRequest,
+        __Marshaller_Log);
+
+    static readonly grpc::Method<global::Remote.FileData, global::Remote.Log> __Method_CreateFile = new grpc::Method<global::Remote.FileData, global::Remote.Log>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CreateFile",
+        __Marshaller_FileData,
+        __Marshaller_Log);
+
+    static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.Log> __Method_CreateText = new grpc::Method<global::Remote.CmdRequest, global::Remote.Log>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CreateText",
+        __Marshaller_CmdRequest,
+        __Marshaller_Log);
+
+    static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.Log> __Method_Rename = new grpc::Method<global::Remote.CmdRequest, global::Remote.Log>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Rename",
+        __Marshaller_CmdRequest,
+        __Marshaller_Log);
+
+    static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.Log> __Method_DeleteFile = new grpc::Method<global::Remote.CmdRequest, global::Remote.Log>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteFile",
+        __Marshaller_CmdRequest,
+        __Marshaller_Log);
+
+    static readonly grpc::Method<global::Remote.CmdRequest, global::Remote.Log> __Method_DeleteFolder = new grpc::Method<global::Remote.CmdRequest, global::Remote.Log>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteFolder",
+        __Marshaller_CmdRequest,
+        __Marshaller_Log);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -100,6 +165,51 @@ namespace Remote {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Remote.MousePosition> GetMousePosition(global::Remote.Nil request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.FileEntrys> ListDir(global::Remote.CmdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.Log> ListDisk(global::Remote.Nil request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.FileData> ReadFile(global::Remote.CmdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.Log> ReadText(global::Remote.CmdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.Log> CreateFile(global::Remote.FileData request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.Log> CreateText(global::Remote.CmdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.Log> Rename(global::Remote.CmdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.Log> DeleteFile(global::Remote.CmdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Remote.Log> DeleteFolder(global::Remote.CmdRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -225,6 +335,150 @@ namespace Remote {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetMousePosition, null, options, request);
       }
+      public virtual global::Remote.FileEntrys ListDir(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ListDir(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.FileEntrys ListDir(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListDir, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.FileEntrys> ListDirAsync(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ListDirAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.FileEntrys> ListDirAsync(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListDir, null, options, request);
+      }
+      public virtual global::Remote.Log ListDisk(global::Remote.Nil request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ListDisk(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.Log ListDisk(global::Remote.Nil request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListDisk, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> ListDiskAsync(global::Remote.Nil request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ListDiskAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> ListDiskAsync(global::Remote.Nil request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListDisk, null, options, request);
+      }
+      public virtual global::Remote.FileData ReadFile(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ReadFile(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.FileData ReadFile(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ReadFile, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.FileData> ReadFileAsync(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ReadFileAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.FileData> ReadFileAsync(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ReadFile, null, options, request);
+      }
+      public virtual global::Remote.Log ReadText(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ReadText(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.Log ReadText(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ReadText, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> ReadTextAsync(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return ReadTextAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> ReadTextAsync(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ReadText, null, options, request);
+      }
+      public virtual global::Remote.Log CreateFile(global::Remote.FileData request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return CreateFile(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.Log CreateFile(global::Remote.FileData request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CreateFile, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> CreateFileAsync(global::Remote.FileData request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return CreateFileAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> CreateFileAsync(global::Remote.FileData request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CreateFile, null, options, request);
+      }
+      public virtual global::Remote.Log CreateText(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return CreateText(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.Log CreateText(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CreateText, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> CreateTextAsync(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return CreateTextAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> CreateTextAsync(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CreateText, null, options, request);
+      }
+      public virtual global::Remote.Log Rename(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return Rename(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.Log Rename(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Rename, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> RenameAsync(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return RenameAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> RenameAsync(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Rename, null, options, request);
+      }
+      public virtual global::Remote.Log DeleteFile(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteFile(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.Log DeleteFile(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteFile, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> DeleteFileAsync(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteFileAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> DeleteFileAsync(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteFile, null, options, request);
+      }
+      public virtual global::Remote.Log DeleteFolder(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteFolder(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Remote.Log DeleteFolder(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteFolder, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> DeleteFolderAsync(global::Remote.CmdRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteFolderAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Remote.Log> DeleteFolderAsync(global::Remote.CmdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteFolder, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override RemoteServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -242,7 +496,16 @@ namespace Remote {
           .AddMethod(__Method_MouseClick, serviceImpl.MouseClick)
           .AddMethod(__Method_KeyTap, serviceImpl.KeyTap)
           .AddMethod(__Method_KeyListTap, serviceImpl.KeyListTap)
-          .AddMethod(__Method_GetMousePosition, serviceImpl.GetMousePosition).Build();
+          .AddMethod(__Method_GetMousePosition, serviceImpl.GetMousePosition)
+          .AddMethod(__Method_ListDir, serviceImpl.ListDir)
+          .AddMethod(__Method_ListDisk, serviceImpl.ListDisk)
+          .AddMethod(__Method_ReadFile, serviceImpl.ReadFile)
+          .AddMethod(__Method_ReadText, serviceImpl.ReadText)
+          .AddMethod(__Method_CreateFile, serviceImpl.CreateFile)
+          .AddMethod(__Method_CreateText, serviceImpl.CreateText)
+          .AddMethod(__Method_Rename, serviceImpl.Rename)
+          .AddMethod(__Method_DeleteFile, serviceImpl.DeleteFile)
+          .AddMethod(__Method_DeleteFolder, serviceImpl.DeleteFolder).Build();
     }
 
   }

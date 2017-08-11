@@ -21,5 +21,11 @@ namespace StressTest
             InitializeComponent();
             textBox1.Text = content;
         }
+
+        private void Form_Text_Load(object sender, EventArgs e)
+        {
+
+            textBox1.Select(0, 0);
+        }
     }
 }
