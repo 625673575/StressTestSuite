@@ -254,7 +254,7 @@ namespace StressTest
 
         private void 远程控制ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RemoteForm remoteWindow = new RemoteForm();
+            RemoteForm remoteWindow = new RemoteForm(null);
             remoteWindow.Show();
         }
     }

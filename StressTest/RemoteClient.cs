@@ -13,15 +13,31 @@ namespace StressTest
         public bool PauseCapture;
         AsyncUnaryCall<ImageData> receiveImageCall;
         RemoteService.RemoteServiceClient service;
+        Channel channel;
         static Dictionary<string, RemoteClient> clients = new Dictionary<string, RemoteClient>();
         public System.Action<Stream> OnReceiveImageStream;
+        public ChannelState ConnState
+        {
+            get
+            {
+                return channel.State;
+            }
+        }
+        public string RemoteTarget
+        {
+            get
+            {
+                return channel.Target;
+            }
+        }
         public static RemoteClient CreateService(string serviceName, string remoteIP)
         {
             RemoteClient client = new RemoteClient();
-            Channel channel = new Channel(remoteIP, ChannelCredentials.Insecure);
-            client.service = new RemoteService.RemoteServiceClient(channel);
+            client.channel = new Channel(remoteIP, ChannelCredentials.Insecure);
+            client.service = new RemoteService.RemoteServiceClient(client.channel);
             client.PauseCapture = false;
             clients.Add(serviceName, client);
+
             return client;
         }
 
